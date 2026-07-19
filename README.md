@@ -127,16 +127,16 @@ LLM (Gemini / OpenAI)
 * PDF parsing
 * DOCX parsing
 * XLSX parsing
-
-### In Progress
-
 * Document chunking
 * Metadata generation
 
-### Planned
+### In Progress
 
 * Embeddings pipeline
 * Qdrant integration
+
+### Planned
+
 * Retrieval layer
 * RAG-powered Q&A
 * Multi-agent workflows
