@@ -4,6 +4,7 @@ from fastapi import File
 
 from app.services.file_service import save_file
 from app.services.parser_service import parse_document
+from app.services.chucking_service import create_chunks
 
 router = APIRouter(
     prefix="/api/v1/upload",
@@ -21,8 +22,14 @@ async def upload_document(
         file_path
     )
 
+    chunks = create_chunks(
+        text=text,
+        filename=file.filename
+    )
+
     return {
         "filename": file.filename,
         "characters": len(text),
-        "preview": text[:1000]
+        "chunks": len(chunks),
+        "preview": chunks[0].text
     }
