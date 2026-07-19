@@ -4,7 +4,7 @@ AI-powered document intelligence platform that transforms enterprise documents i
 
 ## Problem
 
-Organizations store critical knowledge across PDFs, Word documents, spreadsheets, reports, policies, and technical documentation. Finding relevant information is often time-consuming and inefficient.
+Organizations store critical knowledge across PDFs, Word documents, spreadsheets, reports, policies and technical documentation. Finding relevant information is often time-consuming and inefficient.
 
 DocPilot AI enables users to ingest documents, retrieve relevant information, generate summaries, extract insights, and interact with enterprise knowledge through natural language.
 
