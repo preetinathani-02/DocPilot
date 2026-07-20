@@ -1,17 +1,19 @@
 from fastapi import APIRouter
 from fastapi import UploadFile
 from fastapi import File
+import uuid
 
 from app.services.file_service import save_file
 from app.services.parser_service import parse_document
-from app.services.chucking_service import create_chunks
+from app.services.chunking_service import create_chunks
+from app.services.vector_service import create_collection, store_chunks
 
-router = APIRouter(
+upload_router = APIRouter(
     prefix="/api/v1/upload",
     tags=["Upload"]
 )
 
-@router.post("/")
+@upload_router.post("/")
 async def upload_document(
     file: UploadFile = File(...)
 ):
@@ -27,9 +29,16 @@ async def upload_document(
         filename=file.filename
     )
 
+    document_id = str(uuid.uuid4())
+    create_collection()
+    store_chunks(
+        chunks,
+        document_id
+    )
+
     return {
+        "document_id": document_id,
         "filename": file.filename,
-        "characters": len(text),
         "chunks": len(chunks),
-        "preview": chunks[0].text
+        "status": "Indexed successfully"
     }
