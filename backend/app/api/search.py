@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 
 from app.schemas.search import SearchRequest
-from app.services.search_service import search_documents
+from app.services.search_service import retrieve_context
 
 router = APIRouter(
     prefix="/api/v1/search",
@@ -12,7 +12,7 @@ router = APIRouter(
 @router.post("/")
 def search(request: SearchRequest):
 
-    results = search_documents(
+    results = retrieve_context(
         request.query
     )
 

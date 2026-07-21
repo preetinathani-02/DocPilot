@@ -15,6 +15,10 @@ class Settings(BaseSettings):
     CHUNK_SIZE: int = 1000
     CHUNK_OVERLAP: int = 200
 
+    # Gemini 
+    GEMINI_API_KEY: str
+    LLM_MODEL: str 
+
     class Config:
         env_file = ".env"
 
