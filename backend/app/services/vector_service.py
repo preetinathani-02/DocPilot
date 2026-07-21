@@ -6,6 +6,7 @@ from qdrant_client.models import (
     Distance,
     PointStruct,
     VectorParams,
+    Filter,
 )
 
 from app.core.config import settings
@@ -79,6 +80,31 @@ def store_chunks(
         points=points,
     )
 
+def search_similar_chunks(
+    query: str,
+    limit: int = 5,
+):
+    query_embedding = create_embeddings(query)
+    results = client.query_points(
+        collection_name=settings.COLLECTION_NAME,
+        query=query_embedding,
+        limit=limit,
+    ).points
+    
+    response = []
+    for result in results:
+
+        response.append(
+            {
+                "score": result.score,
+                "text": result.payload["text"],
+                "filename": result.payload["filename"],
+                "document_id": result.payload["document_id"],
+                "chunk_id": result.payload["chunk_id"],
+            }
+        )
+
+    return response
 
 def health_check() -> bool:
     """
