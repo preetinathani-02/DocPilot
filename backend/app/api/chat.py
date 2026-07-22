@@ -11,5 +11,9 @@ router = APIRouter(
 
 @router.post("/")
 def ask(request: ChatRequest):
-
-    return chat(request.query)
+    return chat(
+        query=request.query,
+        provider=request.provider,
+        api_key=request.api_key,
+        model=request.model,
+    )

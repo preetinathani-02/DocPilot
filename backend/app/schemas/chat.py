@@ -3,6 +3,9 @@ from pydantic import BaseModel
 
 class ChatRequest(BaseModel):
     query: str
+    provider: str
+    api_key: str
+    model: str
 
 
 class Source(BaseModel):
