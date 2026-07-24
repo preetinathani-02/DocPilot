@@ -33,6 +33,7 @@ def create_embedding(text: str) -> list[float]:
         result = genai.embed_content(
             model=model_name,
             content=text,
+            output_dimensionality=settings.EMBEDDING_DIMENSION,
         )
         return result['embedding']
     else:
@@ -48,6 +49,7 @@ def create_embeddings(texts: list[str] | str) -> list[list[float]] | list[float]
         result = genai.embed_content(
             model=model_name,
             content=texts,
+            output_dimensionality=settings.EMBEDDING_DIMENSION,
         )
         return result['embedding']
     else:
