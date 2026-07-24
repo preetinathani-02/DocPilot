@@ -3,17 +3,17 @@ from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
     # Qdrant
-    QDRANT_HOST: str = "localhost"
-    QDRANT_PORT: int = 6333
-    COLLECTION_NAME: str = "docpilot"
+    QDRANT_HOST: str
+    QDRANT_PORT: int
+    COLLECTION_NAME: str
 
     # Embedding
-    EMBEDDING_DIMENSION: int = 384
-    EMBEDDING_MODEL: str = "sentence-transformers/all-MiniLM-L6-v2"
+    EMBEDDING_DIMENSION: int
+    EMBEDDING_MODEL: str
 
     # Chunking
-    CHUNK_SIZE: int = 1000
-    CHUNK_OVERLAP: int = 200
+    CHUNK_SIZE: int
+    CHUNK_OVERLAP: int
 
     # Gemini 
     GEMINI_API_KEY: str
