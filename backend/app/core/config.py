@@ -3,8 +3,8 @@ from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
     # Qdrant
-    QDRANT_HOST: str
-    QDRANT_PORT: int
+    QDRANT_URL: str
+    QDRANT_API_KEY: str
     COLLECTION_NAME: str
 
     # Embedding

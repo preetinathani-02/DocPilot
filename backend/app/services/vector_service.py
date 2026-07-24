@@ -15,8 +15,8 @@ from app.services.embedding_service import create_embeddings
 
 
 client = QdrantClient(
-    host=settings.QDRANT_HOST,
-    port=settings.QDRANT_PORT,
+    url=settings.QDRANT_URL,
+    api_key=settings.QDRANT_API_KEY,
 )
 
 
